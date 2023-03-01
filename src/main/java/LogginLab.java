@@ -1,10 +1,13 @@
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import javax.lang.model.util.ElementScanner6;
+
 public class LogginLab {
     private final static Logger logger = Logger.getLogger(LogginLab.class.getName());
 
     private Integer threshold = 0;
+    private boolean thresholdReached;
 
     public LogginLab() {
         this.threshold = 0;
@@ -28,9 +31,16 @@ public class LogginLab {
         this.threshold = threshold;
     }
 
-    public boolean thresholdExceeds(Integer limit) {
+    public boolean thresholdExceeds(int limit) {
         if (this.threshold > limit) 
           return true;
+        else
+            return false;
+    }
+
+    public boolean thresholdReached(int limit){
+        if (this.threshold < limit)
+            return true;
         else
             return false;
     }
